@@ -21,7 +21,7 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 scalar DateTime
 
 input IUser {
-  id: String! = "c73f06ef-c740-4e4c-b641-8a09331616b4"
+  id: String! = "c16a8ee9-71cc-4f0b-a101-b7eaf790f702"
   avatar: String!
   firstname: String!
   lastname: String!
@@ -40,6 +40,6 @@ type Query {
 
 type Mutation {
   createUser(user: IUser!): User!
-  updateUser(id: Float!, updatedUser: IUser!): User!
+  updateUser(id: String!, updatedUser: IUser!): User!
   deleteUser(id: String!): ID!
 }

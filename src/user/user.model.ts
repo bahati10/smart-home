@@ -19,7 +19,7 @@ export class User extends Model<User>{
     @Field((type) => String)
     @Default(UUIDV4)
     @Column({type: DataType.STRING})
-    id: string =  uuidv4();
+    id?: string =  uuidv4();
 
     @Field(() => String)
     @Column({type: DataType.STRING})
@@ -27,25 +27,25 @@ export class User extends Model<User>{
 
     @Field(() => String)
     @Column({type: DataType.STRING})
-    firstname: string;
+    firstname?: string;
     
     @Field(() => String)
     @Column({type: DataType.STRING})
-    lastname: string;
+    lastname?: string;
 
     @Field(() => String)
     @Unique
     @Column({type: DataType.STRING})
-    username: string
+    username?: string
 
     @Field(() => String)
     @Column({type: DataType.STRING})
-    password: string
+    password?: string
 
     @Field(() => Number)
     @Unique
     @Column({type: DataType.INTEGER})
-    phonenumber: number;
+    phonenumber?: number;
 
     @Column({type: DataType.DATE})
     @Field(() => scalars.GraphQLDateTime, {nullable: true})

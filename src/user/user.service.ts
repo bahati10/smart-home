@@ -39,8 +39,14 @@ export class UserService{
  
       }
     
-      async updateUser(id: number, updatedUser: User): Promise<[number, User[]]> {
+      async updateUser(id: string, updatedUser: User): Promise<[number, User[]]> {
+        try {
+        const user = await this.findById(id);
         return this.userModel.update(updatedUser, { where: { id }, returning: true });
+        } catch (error) {
+          throw Error(error)
+          
+        }
       }
     
       async deleteUser(id: string): Promise<void> {
