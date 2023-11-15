@@ -1,10 +1,18 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DatabaseModule } from './database/database.module';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { CacheModule } from './cashe/cache.module';
+import * as dotenv from "dotenv"
+
+dotenv.config();
 
 @Module({
-  imports: [],
+  imports: [
+    DatabaseModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
