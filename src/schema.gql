@@ -1,0 +1,45 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: String!
+  avatar: String!
+  firstname: String!
+  lastname: String!
+  username: String!
+  password: String!
+  phonenumber: Float!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+input IUser {
+  id: String! = "c73f06ef-c740-4e4c-b641-8a09331616b4"
+  avatar: String!
+  firstname: String!
+  lastname: String!
+  username: String!
+  password: String!
+  phonenumber: Float!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type Query {
+  users: [User!]!
+  user(id: String!): User!
+}
+
+type Mutation {
+  createUser(user: IUser!): User!
+  updateUser(id: Float!, updatedUser: IUser!): User!
+  deleteUser(id: String!): ID!
+}
