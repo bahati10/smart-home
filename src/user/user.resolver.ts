@@ -29,7 +29,7 @@ export class UserResolver {
   }
 
   @Mutation((returns) => User)
-  async updateUser(@Args('id') id: number, @Args('updatedUser') updatedUser: User): Promise<User | null> {
+  async updateUser(@Args('id') id: string, @Args('updatedUser') updatedUser: User): Promise<User | null> {
     const [, [user]] = await this.userService.updateUser(id, updatedUser);
     return user;
   }
