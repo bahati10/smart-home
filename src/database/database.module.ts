@@ -23,7 +23,6 @@ import { AreaService } from "src/area/area.service";
             ? databaseConfigs.staging.uri
             : databaseConfigs.production.uri,
         models: [User, Device, Area],
-
         autoLoadModels: true,
         synchronize: true,
         sync: {
