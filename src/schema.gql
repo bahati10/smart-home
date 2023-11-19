@@ -20,8 +20,26 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 """
 scalar DateTime
 
+type Device {
+  id: String!
+  name: String!
+  category: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+type Area {
+  id: String
+  name: String!
+  category: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
 input IUser {
-  id: String! = "c16a8ee9-71cc-4f0b-a101-b7eaf790f702"
+  id: String! = "7fdfacda-9fb1-4704-8598-28cf193c7192"
   avatar: String!
   firstname: String!
   lastname: String!
@@ -33,13 +51,41 @@ input IUser {
   deletedAt: DateTime
 }
 
+input IDevice {
+  id: String! = "89088f7c-2640-4f6b-8009-132dc036b49f"
+  name: String!
+  category: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+input IArea {
+  id: String = "04a06a23-9d48-4d64-8597-f8b07113c8b3"
+  name: String!
+  category: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
 type Query {
   users: [User!]!
   user(id: String!): User!
+  devices: [Device!]!
+  device(id: String!): Device!
+  areas: [Area!]!
+  Area(id: String!): Area!
 }
 
 type Mutation {
   createUser(user: IUser!): User!
   updateUser(id: String!, updatedUser: IUser!): User!
   deleteUser(id: String!): ID!
+  createDevice(device: IDevice!): Device!
+  updateDevice(id: String!, updatedDevice: IDevice!): Device!
+  deleteDevice(id: String!): ID!
+  createArea(area: IArea!): Area!
+  updateArea(id: String!, updatedArea: IArea!): Area!
+  deleteArea(id: String!): ID!
 }

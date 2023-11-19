@@ -5,12 +5,15 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { UserResolver } from '../user/user.resolver';
-import { UserService } from '../user/user.service';
 import { UserModule } from '../user/user.module';
+import { DeviceResolver } from 'src/device/device.resolver';
+import { DeviceModule } from 'src/device/device.module';
+import { AreaResolver } from 'src/area/area.resolver';
+import { AreaModule } from 'src/area/device.module';
 
 
 @Module({
-  imports: [UserModule,
+  imports: [UserModule, DeviceModule, AreaModule,
     GraphQLModule.forRoot({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
@@ -18,6 +21,6 @@ import { UserModule } from '../user/user.module';
       watch: true
     }),
   ],
-  providers: [UserResolver],
+  providers: [UserResolver, DeviceResolver, AreaResolver],
 })
 export class GraphqlModule {}
