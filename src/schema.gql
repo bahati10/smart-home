@@ -29,8 +29,17 @@ type Device {
   deletedAt: DateTime
 }
 
+type Area {
+  id: String
+  name: String!
+  category: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
 input IUser {
-  id: String! = "9b695c63-5e60-4ec7-86d2-06cc83f5a37c"
+  id: String! = "7fdfacda-9fb1-4704-8598-28cf193c7192"
   avatar: String!
   firstname: String!
   lastname: String!
@@ -43,7 +52,16 @@ input IUser {
 }
 
 input IDevice {
-  id: String! = "3dc79de3-8b98-4c48-8cd6-0dc45b87834c"
+  id: String! = "89088f7c-2640-4f6b-8009-132dc036b49f"
+  name: String!
+  category: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
+input IArea {
+  id: String = "04a06a23-9d48-4d64-8597-f8b07113c8b3"
   name: String!
   category: String!
   createdAt: DateTime
@@ -56,6 +74,8 @@ type Query {
   user(id: String!): User!
   devices: [Device!]!
   device(id: String!): Device!
+  areas: [Area!]!
+  Area(id: String!): Area!
 }
 
 type Mutation {
@@ -65,4 +85,7 @@ type Mutation {
   createDevice(device: IDevice!): Device!
   updateDevice(id: String!, updatedDevice: IDevice!): Device!
   deleteDevice(id: String!): ID!
+  createArea(area: IArea!): Area!
+  updateArea(id: String!, updatedArea: IArea!): Area!
+  deleteArea(id: String!): ID!
 }
