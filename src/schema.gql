@@ -20,8 +20,17 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `dat
 """
 scalar DateTime
 
+type Device {
+  id: String!
+  name: String!
+  category: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
 input IUser {
-  id: String! = "c16a8ee9-71cc-4f0b-a101-b7eaf790f702"
+  id: String! = "9b695c63-5e60-4ec7-86d2-06cc83f5a37c"
   avatar: String!
   firstname: String!
   lastname: String!
@@ -33,13 +42,27 @@ input IUser {
   deletedAt: DateTime
 }
 
+input IDevice {
+  id: String! = "3dc79de3-8b98-4c48-8cd6-0dc45b87834c"
+  name: String!
+  category: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+  deletedAt: DateTime
+}
+
 type Query {
   users: [User!]!
   user(id: String!): User!
+  devices: [Device!]!
+  device(id: String!): Device!
 }
 
 type Mutation {
   createUser(user: IUser!): User!
   updateUser(id: String!, updatedUser: IUser!): User!
   deleteUser(id: String!): ID!
+  createDevice(device: IDevice!): Device!
+  updateDevice(id: String!, updatedDevice: IDevice!): Device!
+  deleteDevice(id: String!): ID!
 }
